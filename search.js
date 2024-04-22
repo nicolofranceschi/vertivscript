@@ -22,7 +22,7 @@ function selectElement(value) {
 function closeSearch() {
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
-    const ele = document.getElementsByName("add").remove();
+    const ele = document.getElementsByName("add");
     console.log("ele", ele)
     for (var i = 0; i < ele.length; i++) {
         ele[i].remove();
