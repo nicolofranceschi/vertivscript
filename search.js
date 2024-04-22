@@ -20,7 +20,7 @@ function selectElement(value) {
 }
 
 function closeSearch() {
-    document.getElementById("search").remove();
+    document.getElementById("searchUI").remove();
 }
 
 document.head.insertAdjacentHTML("beforeend", `<link rel="preconnect" href="https://fonts.googleapis.com">
