@@ -4,7 +4,7 @@ function searchElement(s) {
     for (let i = 0; i < x.length; i++) {
         if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push({ value: x[i].value, label: x[i].label })
     }
-    console.log("filter",filter)
+    console.log("filter ciao",filter)
     var form = document.getElementById("formPlace");
     for (let i = 0; i < filter.length; i++) {
         form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement(${filter[i].value})">${filter[i].label}</strong>`);
