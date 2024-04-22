@@ -37,7 +37,7 @@ document.head.insertAdjacentHTML("afterend", `<link rel="preconnect" href="https
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">`);
 
 
-fetch('https://nicolofranceschi.github.io/vertivscript/layes')
+fetch('https://nicolofranceschi.github.io/vertivscript/layer')
     .then(function(response) {
         return response.text()
     })
@@ -45,5 +45,5 @@ fetch('https://nicolofranceschi.github.io/vertivscript/layes')
         document.body.insertAdjacentHTML("afterend", html );
     })
     .catch(function(err) {  
-        console.log('Failed to fetch page: ', err);  
+        console.log('Failed to fetch page:', err);  
     });
