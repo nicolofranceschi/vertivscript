@@ -22,17 +22,17 @@ function selectElement(value) {
 function closeSearch() {
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
-    const ele = document.getElementsByName("add");
-    console.log("ele", ele)
-    for (var i = 0; i < ele.length; i++) {
-        ele[i].remove();
-    }
+    document.getElementById("fontinter").remove();
+    document.getElementById("gstatic").remove();
+    document.getElementById("cssfile").remove();
+    document.getElementById("interdata").remove();
+
 }
 
-document.head.insertAdjacentHTML("beforeend", `<link name="add" rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect"  name="add" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet"  name="add" href="https://vertivscript.vercel.app/plugin.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  name="add" rel="stylesheet">`);
+document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" id="gstatic" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" id="cssfile" href="https://vertivscript.vercel.app/plugin.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
 
 fetch('https://vertivscript.vercel.app/layer.html')
     .then(function (response) {
