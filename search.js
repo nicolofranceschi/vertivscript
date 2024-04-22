@@ -23,7 +23,7 @@ function closeSearch() {
     document.getElementById("search").remove();
 }
 
-document.head.insertAdjacentHTML("afterend", `<link rel="preconnect" href="https://fonts.googleapis.com">
+document.head.insertAdjacentHTML("beforeend", `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">`);
@@ -34,7 +34,7 @@ fetch('https://nicolofranceschi.github.io/vertivscript/layer')
         return response.text()
     })
     .then(function(html) {
-        document.body.insertAdjacentHTML("afterend", html );
+        document.body.insertAdjacentHTML("beforeend", html );
     })
     .catch(function(err) {  
         console.log('Failed to fetch page:', err);  
