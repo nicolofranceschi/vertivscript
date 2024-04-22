@@ -25,9 +25,8 @@ function closeSearch() {
 
 document.head.insertAdjacentHTML("beforeend", `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script rel="preconnect" src='https://cdn.tailwindcss.com'></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">`);
-
-document.body.insertAdjacentHTML("beforeend", "<script src='https://cdn.tailwindcss.com'></script>" );
 
 fetch('https://vertivscript.vercel.app/layer.html')
     .then(function(response) {
