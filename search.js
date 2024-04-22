@@ -25,15 +25,7 @@ function closeSearch() {
 
 document.head.insertAdjacentHTML("afterend", `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://nicolofranceschi.github.io/vertivscript/style.css">
 <script src="https://cdn.tailwindcss.com"></script>
-<style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-    }
-  </style>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">`);
 
 
