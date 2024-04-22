@@ -21,6 +21,7 @@ function selectElement(value) {
 
 function closeSearch() {
     document.getElementById("searchUI").remove();
+    document.getElementById("search").remove();
 }
 
 document.head.insertAdjacentHTML("beforeend", `<link rel="preconnect" href="https://fonts.googleapis.com">
