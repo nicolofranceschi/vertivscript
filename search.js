@@ -26,19 +26,24 @@ function closeSearch() {
 document.head.insertAdjacentHTML("afterend", `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://nicolofranceschi.github.io/vertivscript/style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">`);
 
-document.body.insertAdjacentHTML("afterend", `<div
-id="search"
-style='position:fixed; top:0%; left:0%; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:10000; display: flex; justify-content: center; align-items: center;'>
-<div style="margin:50px;">
-    <div style="background-color:white; padding:20px; border-radius:10px; position: relative;">
-        <h1 classname="inter-class" >Search</h1>
-        <p style="position: absolute; top:10px; right:10px; cursor: pointer;" onclick="closeSearch()">X</p>
-            <input id="searchValue" type="search" name="search" />
-            <button type="submit" value="GO" onclick="searchElement(document.getElementById('searchValue').value)">GO</button>
-        <div id="formPlace"  style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px; max-height: 300px; overflow: auto; cursor: pointer;">
-        </div>
-    </div>
-</div>
-</div>`);
+
+fetch('https://nicolofranceschi.github.io/vertivscript/layes')
+    .then(function(response) {
+        return response.text()
+    })
+    .then(function(html) {
+        document.body.insertAdjacentHTML("afterend", html );
+    })
+    .catch(function(err) {  
+        console.log('Failed to fetch page: ', err);  
+    });
