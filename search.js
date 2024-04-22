@@ -25,7 +25,7 @@ function closeSearch() {
 
 document.head.insertAdjacentHTML("afterend", `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://nicolofranceschi.github.io/vertivscript/index.css">
+<link rel="stylesheet" href="https://nicolofranceschi.github.io/vertivscript/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">`);
 
 document.body.insertAdjacentHTML("afterend", `<div
