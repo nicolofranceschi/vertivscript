@@ -3,27 +3,30 @@ function searchElement(s) {
     const x = JSON.parse(JSONids);
     var filter = [];
     for (let i = 0; i < x.length; i++) {
-        if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push({ value: x[i].value, label: x[i].label })
+        if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push(x[i].name)
     }
+    if (filter.length === 0) filter = x.map((x) => x.name);
     var form = document.getElementById("formPlace");
     for (let i = 0; i < filter.length; i++) {
-        form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement(${filter[i].value})">${filter[i].label}</strong>`);
+        form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement(${filter[i]})">${filter[i]}</strong>`);
     }
     return filter
 }
 
 function selectElement(value) {
-    console.log(value)
-    let element = document.getElementById("DocumentTemplateSelectionTemplateId");
-    element.value = value;
-    closeSearch();
+    const JSONvalues = localStorage.getItem(value);
+    const values = JSON.parse(JSONvalues);
+    values.forEach((value) => {
+        const input = document.querySelector(`input[name=${value.name}]`);
+        input.checked = value.value;
+    })
 }
 
 function createTeamplate(value) {
     const JSONids = localStorage.getItem("ids");
     const ids = JSON.parse(JSONids);
     if (ids?.includes(value)) return alert("Template ids already taken!");
-    localStorage.setItem("ids", JSON.stringify([...ids, value]));
+    localStorage.setItem("ids", JSON.stringify(ids ? [...ids, value] : [value]));
     const domREfBuild = document.querySelectorAll("input[name^=build]")
     const domREfAdmin = document.querySelectorAll("input[name^=admin]")
     const template = [...domREfBuild, ...domREfAdmin].map((input) => ({ name: input.name, value: input.checked }))
