@@ -1,10 +1,10 @@
 function searchElement(s) {
-    var x = document.getElementById("DocumentTemplateSelectionTemplateId").options;
+    const JSONids = localStorage.getItem("ids");
+    const x = JSON.parse(JSONids);
     var filter = [];
     for (let i = 0; i < x.length; i++) {
         if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push({ value: x[i].value, label: x[i].label })
     }
-    console.log("filter ciao", filter)
     var form = document.getElementById("formPlace");
     for (let i = 0; i < filter.length; i++) {
         form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement(${filter[i].value})">${filter[i].label}</strong>`);
@@ -17,6 +17,17 @@ function selectElement(value) {
     let element = document.getElementById("DocumentTemplateSelectionTemplateId");
     element.value = value;
     closeSearch();
+}
+
+function createTeamplate(value) {
+    const JSONids = localStorage.getItem("ids");
+    const ids = JSON.parse(JSONids);
+    if (ids.includes(value)) return alert("Template ids already taken!");
+    localStorage.setItem("ids", JSON.stringify([...ids, value]));
+    const domREfBuild = document.querySelectorAll("input[name^=build]")
+    const domREfAdmin = document.querySelectorAll("input[name^=admin]")
+    const template = [...domREfBuild, ...domREfAdmin].map((input) => ({ name: input.name, value: input.checked }))
+    localStorage.setItem(value, JSON.stringify(template));
 }
 
 function selectAllBuild() {

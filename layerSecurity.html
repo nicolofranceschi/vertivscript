@@ -20,11 +20,11 @@
                     <input type="checkbox" id="selectAllAdmin" name="selectAllAdmin" value="selectAllAdmin" onclick="selectAllAdmin()">
                     <label for="selectBuild">Select all Admin</label>
                 </div>
+                <p>Template</p>
                 <input id="searchValue" type="search" name="search" />
-                <button type="submit" value="GO"
-                    onclick="searchElement(document.getElementById('searchValue').value)">GO</button>
-                <div id="formPlace"
-                    style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px; max-height: 300px; overflow: auto; cursor: pointer;">
+                <button type="submit" value="GO" onclick="searchElement(document.getElementById('searchValue').value)">GO</button>
+                <div id="formPlace" style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px; max-height: 300px; overflow: auto; cursor: pointer;">
+                    <strong onclick="createTeamplate(document.getElementById('searchValue').value)">Create Tempalte</strong>
                 </div>
             </div>
         </div>
