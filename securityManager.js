@@ -19,6 +19,24 @@ function selectElement(value) {
     closeSearch();
 }
 
+function selectAllBuild() {
+    let element = document.getElementById("selectAllBuild");
+    if (element.checked) {
+        document.querySelectorAll("input[name^=build]").forEach((input) => input.checked = true )
+    } else {
+        document.querySelectorAll("input[name^=build]").forEach((input) => input.checked = false )
+    }
+}
+
+function selectAllAdmin() {
+    let element = document.getElementById("selectAllAdmin");
+    if (element.checked) {
+        document.querySelectorAll("input[name^=admin]").forEach((input) => input.checked = true )
+    } else {
+        document.querySelectorAll("input[name^=admin]").forEach((input) => input.checked = false )
+    }
+}
+
 function closeSearch() {
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
@@ -33,6 +51,7 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 <link rel="preconnect" id="gstatic" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" id="cssfile" href="https://vertivscript.vercel.app/plugin.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
+
 
 fetch('https://vertivscript.vercel.app/layerSecurity.html')
     .then(function (response) {
