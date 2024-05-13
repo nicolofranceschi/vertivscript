@@ -3,12 +3,12 @@ function searchElement(s) {
     const x = JSON.parse(JSONids);
     var filter = [];
     for (let i = 0; i < x.length; i++) {
-        if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push(x[i].name)
+        if (x[i].toLowerCase().includes(s.toLowerCase())) filter.push(x[i])
     }
-    if (filter.length === 0) filter = x.map((x) => x.name);
+    if (filter.length === 0) filter = x;
     var form = document.getElementById("formPlace");
     for (let i = 0; i < filter.length; i++) {
-        form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement(${filter[i]})">${filter[i]}</strong>`);
+        form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement('${filter[i]}')">${filter[i]}</strong>`);
     }
     return filter
 }
