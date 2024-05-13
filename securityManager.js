@@ -7,10 +7,32 @@ function searchElement(s) {
     }
     if (filter.length === 0) filter = x;
     var form = document.getElementById("formPlace");
+    while (form.firstChild) { 
+        form.removeChild(form.firstChild); 
+        // OR 
+        form?.firstChild?.remove(); 
+    }
     for (let i = 0; i < filter.length; i++) {
-        form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement('${filter[i]}')">${filter[i]}</strong>`);
+        form.insertAdjacentHTML("beforeend", `
+        <div style='display: flex;justify-content: space-between;align-items: center;'>
+        <strong onclick="selectElement('${filter[i]}')">${filter[i]}</strong>
+        <div style='display: flex;flex-gap: 10px;align-items: center;'>
+        <button onclick="createTeamplate('${filter[i]}')">E</button>
+        <button onclick="deleteElement('${filter[i]}','${s}')">D</button>
+        </div>
+        </div>
+        `);
     }
     return filter
+}
+
+function deleteElement(value,s) {
+    localStorage.removeItem(value)
+    const JSONids = localStorage.getItem("ids");
+    const ids = JSON.parse(JSONids);
+    const filter = ids.filter((id) => id !== value);
+    localStorage.setItem("ids", JSON.stringify(filter));
+    searchElement(s)
 }
 
 function selectElement(value) {
