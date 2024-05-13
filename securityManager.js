@@ -55,7 +55,7 @@ function selectElement(value) {
 function createTeamplate(value) {
     const JSONids = localStorage.getItem("ids");
     const ids = JSON.parse(JSONids);
-    if (ids?.includes(value) && doubleControl) return alert("Template ids already taken!");
+    if (ids?.includes(value)) return alert("Template ids already taken!");
     localStorage.setItem("ids", JSON.stringify(ids ? [...ids, value] : [value]));
     const domREfBuild = document.querySelectorAll("input[name^=build]")
     const domREfAdmin = document.querySelectorAll("input[name^=admin]")
