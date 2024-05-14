@@ -1,5 +1,5 @@
 function searchElement(s) {
-    var x = document.getElementById(searchAim).options;
+    var x = document.getElementById("DocumentTemplateSelectionTemplateId").options;
     var filter = [];
     for (let i = 0; i < x.length; i++) {
         if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push({ value: x[i].value, label: x[i].label })
@@ -14,7 +14,7 @@ function searchElement(s) {
 
 function selectElement(value) {
     console.log(value)
-    let element = document.getElementById(searchAim);
+    let element = document.getElementById("DocumentTemplateSelectionTemplateId");
     element.value = value;
     closeSearch();
 }
