@@ -34,6 +34,7 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 <link rel="stylesheet" id="cssfile" href="https://vertivscript.vercel.app/plugin.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
 
+
 fetch('https://vertivscript.vercel.app/layer.html')
     .then(function (response) {
         return response.text()
