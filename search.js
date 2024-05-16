@@ -1,7 +1,7 @@
 var id = null;
 
 function searchElement(s) {
-    var x = document.getElementById(id).options;
+    var x = document.getElementsByName(id)[0].options;
     let elementCheck = document.getElementById("searchByTag").checked;
     var filter = [];
     for (let i = 0; i < x.length; i++) {
@@ -26,7 +26,7 @@ function searchElement(s) {
 
 function selectElement(value) {
     console.log(value)
-    let element = document.getElementById(id);
+    let element = document.getElementsByName(id)[0];
     element.value = value;
     closeSearch();
 }
