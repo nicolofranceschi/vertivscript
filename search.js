@@ -6,7 +6,7 @@ function searchElement(s) {
     var filter = [];
     for (let i = 0; i < x.length; i++) {
         if (elementCheck) {
-            if (x[i].label.search(s)) filter.push({ value: x[i].value, label: x[i].label })
+            if (x[i].label.search(s) >= 0) filter.push({ value: x[i].value, label: x[i].label })
         } else {
             if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push({ value: x[i].value, label: x[i].label })
         }
