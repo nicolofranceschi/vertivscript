@@ -21,7 +21,23 @@ function selectElement(value) {
     closeSearch();
 }
 
+const init = (e) => {
+    if (id) return
+    id = e.target.id
+    fetch('https://vertivscript.vercel.app/layer.html')
+    .then(function (response) {
+        return response.text()
+    })
+    .then(function (html) {
+        document.body.insertAdjacentHTML("beforeend", html);
+    })
+    .catch(function (err) {
+        console.log('Failed to fetch page:', err);
+    });
+}
+
 function closeSearch() {
+    document.removeEventListener("click", init);
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
     document.getElementById("fontinter").remove();
@@ -36,18 +52,5 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 <link rel="stylesheet" id="cssfile" href="https://vertivscript.vercel.app/plugin.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
 
-document.addEventListener("click", (e) => {
-    if (id) return
-    id = e.target.id
-    fetch('https://vertivscript.vercel.app/layer.html')
-    .then(function (response) {
-        return response.text()
-    })
-    .then(function (html) {
-        document.body.insertAdjacentHTML("beforeend", html);
-    })
-    .catch(function (err) {
-        console.log('Failed to fetch page:', err);
-    });
-})
+document.addEventListener("click",init)
 
