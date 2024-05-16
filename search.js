@@ -21,7 +21,7 @@ function selectElement(value) {
     closeSearch();
 }
 
-const init = (e) => {
+function init (e) {
     if (id) return
     id = e.target.id
     fetch('https://vertivscript.vercel.app/layer.html')
@@ -37,7 +37,7 @@ const init = (e) => {
 }
 
 function closeSearch() {
-    document.removeEventListener("click", init);
+    document.removeEventListener("click", init, false);
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
     document.getElementById("fontinter").remove();
@@ -52,5 +52,5 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 <link rel="stylesheet" id="cssfile" href="https://vertivscript.vercel.app/plugin.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
 
-document.addEventListener("click",init)
+document.addEventListener("click",init,false);
 
