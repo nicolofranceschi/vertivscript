@@ -1,21 +1,15 @@
 var id = null;
 
 function searchElement(s) {
-    var x = document.getElementsByName(id)[0].options;
+    var x = id.options;
     let elementCheck = document.getElementById("searchByTag").checked;
     var filter = [];
     for (let i = 0; i < x.length; i++) {
         if (elementCheck) {
-            if (x[i].label.search(s) >= 0) filter.push({ value: x[i].value, label: x[i].label })
+            if (x[i].label.search(s)) filter.push({ value: x[i].value, label: x[i].label })
         } else {
             if (x[i].label.toLowerCase().includes(s.toLowerCase())) filter.push({ value: x[i].value, label: x[i].label })
         }
-    }
-    var form = document.getElementById("formPlace");
-    while (form.firstChild) {
-        form.removeChild(form.firstChild);
-        // OR 
-        form?.firstChild?.remove();
     }
     var form = document.getElementById("formPlace");
     for (let i = 0; i < filter.length; i++) {
@@ -26,15 +20,14 @@ function searchElement(s) {
 
 function selectElement(value) {
     console.log(value)
-    let element = document.getElementsByName(id)[0];
-    element.value = value;
+    id.value = value;
     closeSearch();
 }
 
 function init(e) {
     if (id) return
     document.getElementById("banner").remove();
-    id = e.target.id
+    id = e.target
     fetch('https://vertivscript.vercel.app/layer.html')
         .then(function (response) {
             return response.text()
@@ -66,12 +59,12 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 document.addEventListener("click", init, false);
 
 fetch('https://vertivscript.vercel.app/banner.html')
-        .then(function (response) {
-            return response.text()
-        })
-        .then(function (html) {
-            document.body.insertAdjacentHTML("beforeend", html);
-        })
-        .catch(function (err) {
-            console.log('Failed to fetch page:', err);
-        });
+    .then(function (response) {
+        return response.text()
+    })
+    .then(function (html) {
+        document.body.insertAdjacentHTML("beforeend", html);
+    })
+    .catch(function (err) {
+        console.log('Failed to fetch page:', err);
+    });
