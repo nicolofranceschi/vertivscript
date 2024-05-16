@@ -29,9 +29,9 @@ function preventDefault(e) {
 }
 
 function init(e) {
-    if (id) return
     document.removeEventListener("click", init, false);
     document.removeEventListener("mousedown", preventDefault, false);
+    if (id) return
     document.getElementById("banner").remove();
     id = e.target
     fetch('https://vertivscript.vercel.app/layer.html')
