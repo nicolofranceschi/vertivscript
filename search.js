@@ -28,7 +28,7 @@ function closeSearch() {
     document.getElementById("gstatic").remove();
     document.getElementById("cssfile").remove();
     document.getElementById("interdata").remove();
-
+    id = null;
 }
 
 document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +37,7 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
 
 document.addEventListener("click", (e) => {
+    if (id) return
     id = e.target.id
     fetch('https://vertivscript.vercel.app/layer.html')
     .then(function (response) {
