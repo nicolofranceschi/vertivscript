@@ -24,14 +24,10 @@ function selectElement(value) {
     closeSearch();
 }
 
-function preventDefault(e) {
-    e.preventDefault();
-}
 
 function init(e) {
-    document.removeEventListener("click", init, false);
-    document.removeEventListener("mousedown", preventDefault, false);
     if (id) return
+    e.preventDefault();
     document.getElementById("banner").remove();
     id = e.target
     fetch('https://vertivscript.vercel.app/layer.html')
@@ -47,6 +43,7 @@ function init(e) {
 }
 
 function closeSearch() {
+    document.removeEventListener("mousedown", init, false);
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
     document.getElementById("fontinter").remove();
@@ -61,8 +58,7 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 <link rel="stylesheet" id="cssfile" href="https://vertivscript.vercel.app/plugin.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
 
-document.addEventListener("click", init, false);
-document.addEventListener("mousedown", preventDefault, false);
+document.addEventListener("mousedown", init, false);
 
 fetch('https://vertivscript.vercel.app/banner.html')
     .then(function (response) {
