@@ -30,7 +30,8 @@ function preventDefault(e) {
 
 function init(e) {
     if (id) return
-    e.preventDefault();
+    document.removeEventListener("click", init, false);
+    document.addEventListener("mousedown", preventDefault, false);
     document.getElementById("banner").remove();
     id = e.target
     fetch('https://vertivscript.vercel.app/layer.html')
@@ -46,8 +47,6 @@ function init(e) {
 }
 
 function closeSearch() {
-    document.removeEventListener("click", init, false);
-    document.addEventListener("mousedown", preventDefault, false);
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
     document.getElementById("fontinter").remove();
