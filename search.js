@@ -26,6 +26,7 @@ function selectElement(value) {
 
 function init(e) {
     if (id) return
+    e.preventDefault();
     document.getElementById("banner").remove();
     id = e.target
     fetch('https://vertivscript.vercel.app/layer.html')
