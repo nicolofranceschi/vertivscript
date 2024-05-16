@@ -24,6 +24,10 @@ function selectElement(value) {
     closeSearch();
 }
 
+function preventDefault(e) {
+    e.preventDefault();
+}
+
 function init(e) {
     if (id) return
     e.preventDefault();
@@ -43,6 +47,7 @@ function init(e) {
 
 function closeSearch() {
     document.removeEventListener("click", init, false);
+    document.addEventListener("mousedown", preventDefault, false);
     document.getElementById("searchUI").remove();
     document.getElementById("search").remove();
     document.getElementById("fontinter").remove();
@@ -58,6 +63,7 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"  id="interdata" rel="stylesheet">`);
 
 document.addEventListener("click", init, false);
+document.addEventListener("mousedown", preventDefault, false);
 
 fetch('https://vertivscript.vercel.app/banner.html')
     .then(function (response) {
