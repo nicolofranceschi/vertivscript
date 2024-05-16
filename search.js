@@ -12,6 +12,12 @@ function searchElement(s) {
         }
     }
     var form = document.getElementById("formPlace");
+    while (form.firstChild) {
+        form.removeChild(form.firstChild);
+        // OR 
+        form?.firstChild?.remove();
+    }
+    var form = document.getElementById("formPlace");
     for (let i = 0; i < filter.length; i++) {
         form.insertAdjacentHTML("beforeend", `<strong onclick="selectElement(${filter[i].value})">${filter[i].label}</strong>`);
     }
