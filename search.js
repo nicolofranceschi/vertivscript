@@ -27,6 +27,7 @@ function selectElement(value) {
 
 function init(e) {
     if (id) return
+    document.getElementById("banner").remove();
     id = e.target.id
     fetch('https://vertivscript.vercel.app/layer.html')
         .then(function (response) {
@@ -58,3 +59,13 @@ document.head.insertAdjacentHTML("beforeend", `<link id="fontinter" rel="preconn
 
 document.addEventListener("click", init, false);
 
+fetch('https://vertivscript.vercel.app/banner.html')
+        .then(function (response) {
+            return response.text()
+        })
+        .then(function (html) {
+            document.body.insertAdjacentHTML("beforeend", html);
+        })
+        .catch(function (err) {
+            console.log('Failed to fetch page:', err);
+        });
