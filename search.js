@@ -19,8 +19,9 @@ function searchElement(s) {
 }
 
 function selectElement(value) {
-    console.log(value)
     id.value = value;
+    var event = new Event('change');
+    id.dispatchEvent(event);
     closeSearch();
 }
 
