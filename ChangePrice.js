@@ -20,15 +20,15 @@ if(enteredValue){
 
 	elementList.forEach(function (item, index) {
 		setTimeout(function () {
-			console.log(item.value)
-			let elementFloatValue = parseFloat(item.value.replace(",","."))/ (1 - parseFloat(enteredValue)/100)		
+			console.log(parseFloat(item.value.replace(",",".")))
+			let elementFloatValue = parseFloat(item.value.replace(",",".")) / (1 - parseFloat(enteredValue)/100)		
 			let elementStringValue = elementFloatValue.toFixed(2).toString().replace(".",",")	
 			
 			ShowMessage('Changing price ... ' + counter + "/" + elementList.length);
 			
 			print(elementStringValue, item.id)
 			counter++;			
-			// console.log(item.id + "=" + elementStringValue);
+			console.log(item.id + "=" + elementStringValue);
 			
 			if(index == elementList.length - 1) ShowMessage(`All Prices changed by ${enteredValue}% (${elementList.length} items)`);
 			else popMessageLine('Please wait...', 'alert', 1000);
