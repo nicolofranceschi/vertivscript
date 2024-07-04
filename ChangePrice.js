@@ -4,7 +4,7 @@
 //---------------------------------//
 
 //ADMINISTRATION
-var scriptVer = '1.2.0';
+var scriptVer = '1.2.1';
 var scriptId = new URL(document.currentScript.src).searchParams.get('id');
 
 Administration(scriptId, scriptVer);
