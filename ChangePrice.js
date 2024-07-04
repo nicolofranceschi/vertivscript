@@ -20,6 +20,7 @@ if(enteredValue){
 
 	elementList.forEach(function (item, index) {
 		setTimeout(function () {
+			console.log(item.value)
 			let elementFloatValue = parseFloat(item.value.replace(",","."))/ (1 - parseFloat(enteredValue)/100)		
 			let elementStringValue = elementFloatValue.toFixed(2).toString().replace(".",",")	
 			
