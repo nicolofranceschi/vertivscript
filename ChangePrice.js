@@ -22,7 +22,7 @@ if(enteredValue){
 		setTimeout(function () {
 			console.log(parseFloat(item.value.replace(",",".")), parseFloat(enteredValue.replace(",",".")))
 			let elementFloatValue = parseFloat(item.value.replace(",",".")) / (1 - parseFloat(enteredValue.replace(",","."))/100)		
-			let elementStringValue = elementFloatValue.toFixed(2).toString().replace(".",",")
+			let elementStringValue = elementFloatValue.toFixed(2).toString()
 			console.log(elementFloatValue, elementStringValue)
 			
 			ShowMessage('Changing price ... ' + counter + "/" + elementList.length);
